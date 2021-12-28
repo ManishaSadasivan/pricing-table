@@ -1,0 +1,56 @@
+import "./styles.css";
+import React, { useState } from "react";
+export default function App() {
+  const data = [
+    {
+      name: "Manisha",
+      pic:
+        "https://i.pinimg.com/474x/d8/dd/21/d8dd21e04234dae4687ed0a1f4f9d02f.jpg"
+    },
+    {
+      name: "Aanisha",
+      pic:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbAK2j2vNZbxRSoryxHbCmhK0uGDmJSpvjng&usqp=CAU"
+    },
+    {
+      name: "Nisha",
+      pic:
+        "https://imgk.timesnownews.com/67709142_389627345027865_2955314183776972875_n_1568368196__rend_1_1.jpg?tr=w-360"
+    }
+  ];
+  return (
+    <div className="app">
+      {data.map((data) => (
+        <Profile name={data.name} pic={data.pic} />
+      ))}
+      <Counter />
+    </div>
+  );
+}
+function Welcome() {
+  return (
+    <div>
+      <h1>Welcome All !</h1>
+    </div>
+  );
+}
+function Profile(a) {
+  return (
+    <div className="profile">
+      <h2>{a.name}</h2>
+      <img altr="profilepic" src={a.pic} />
+      <br />
+    </div>
+  );
+}
+function Counter() {
+  const [Like, setLike] = useState(0);
+  return (
+    <div>
+      <button onClick={() => setLike(Like + 1)}>
+        <strong>{Like}</strong>
+      </button>
+      <h2>Like</h2>
+    </div>
+  );
+}
